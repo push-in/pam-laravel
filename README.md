@@ -6,7 +6,7 @@ Production tooling for Laravel 12 and 13 applications running on the
 ## Install
 
 ```bash
-composer require pushinbr/pam-laravel
+pam composer require pushinbr/pam-laravel
 pam artisan pam:install --preset=api
 pam artisan pam:check-production
 ```
