@@ -3,9 +3,18 @@
 Production tooling for Laravel 12 and 13 applications running on the
 [PAM runtime](https://github.com/push-in/pam).
 
-## Install
+## Start here
+
+PAM Laravel is a Composer product that runs on the PAM Runtime. Install and
+verify PAM before adding the Laravel integration:
 
 ```bash
+curl --proto '=https' --proto-redir '=https' --tlsv1.2 \
+    --connect-timeout 15 --max-time 60 --max-filesize 1048576 -fsSL \
+    https://github.com/push-in/pam/releases/latest/download/install.sh | sh
+
+cd my-laravel-app
+pam doctor
 pam composer require pushinbr/pam-laravel
 pam artisan pam:install --preset=api
 pam artisan pam:check-production
