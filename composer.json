@@ -32,6 +32,10 @@
             "commands": {
                 "artisan": {
                     "script": "bin/pam-artisan",
+                    "environment": {
+                        "APP_RUNNING_IN_CONSOLE": "true",
+                        "PAM_CLI_MODE": "1"
+                    },
                     "description": "Run Laravel Artisan inside PAM's embedded PHP"
                 }
             }
