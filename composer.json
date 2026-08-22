@@ -10,7 +10,7 @@
         "php",
         "production"
     ],
-    "homepage": "https://github.com/push-in/pam",
+    "homepage": "https://github.com/push-in/pam-laravel",
     "support": {
         "issues": "https://github.com/push-in/pam/issues",
         "source": "https://github.com/push-in/pam-laravel"
@@ -24,7 +24,18 @@
             "Pam\\Laravel\\": "src/"
         }
     },
+    "bin": [
+        "bin/pam-artisan"
+    ],
     "extra": {
+        "pam": {
+            "commands": {
+                "artisan": {
+                    "script": "bin/pam-artisan",
+                    "description": "Run Laravel Artisan inside PAM's embedded PHP"
+                }
+            }
+        },
         "laravel": {
             "providers": [
                 "Pam\\Laravel\\PamServiceProvider"

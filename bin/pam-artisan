@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+$artisan = getcwd().DIRECTORY_SEPARATOR.'artisan';
+
+if (!is_file($artisan)) {
+    fwrite(STDERR, "pam-artisan: artisan was not found in the current project\n");
+    exit(66);
+}
+
+putenv('PAM_CLI_MODE=1');
+putenv('APP_RUNNING_IN_CONSOLE=true');
+
+require $artisan;
