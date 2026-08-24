@@ -1,32 +1,51 @@
-# PAM Laravel
+<!-- pam:product-page:start -->
+<div align="center">
+
+# Laravel on PAM
+
+**Keep Laravel. Replace the disposable runtime underneath it.**
+
+Production lifecycle, isolation, observability, queues, and deployment tooling for long-lived Laravel applications running on PAM.
+
+[![Release](https://img.shields.io/github/v/release/push-in/pam-laravel?style=flat-square&label=stable)](https://github.com/push-in/pam-laravel/releases)
+![PHP](https://img.shields.io/badge/PHP-8.5-777BB4?style=flat-square&logo=php&logoColor=white)
+![License](https://img.shields.io/github/license/push-in/pam-laravel?style=flat-square)
+
+**[Documentation](https://push-in.github.io/pam-docs/laravel/overview/) · [Why this exists](#why-this-exists) · [What you can build](#what-you-can-build) · [Quick start](#quick-start) · [Issues](https://github.com/push-in/pam-laravel/issues)**
+
+</div>
+
+---
+
+## Why this exists
+
+Production lifecycle, isolation, observability, queues, and deployment tooling for long-lived Laravel applications running on PAM.
+
+| | |
+| --- | --- |
+| **Role** | Framework integration |
+| **Execution path** | Laravel · Persistent PHP · PAM Runtime |
+| **This repository owns** | Laravel boot, request isolation, cleanup, diagnostics, and production commands |
+| **Boundary** | Laravel conventions and its package ecosystem remain Laravel |
+
+## What you can build
+
+- High-throughput Laravel APIs
+- Long-lived workers with explicit state hygiene
+- Laravel deployments supervised by the PAM runtime
+
+## Quick start
+
+```bash
+pam composer require pushinbr/pam-laravel
+pam laravel:doctor
+```
+
+The **[PAM documentation](https://push-in.github.io/pam-docs/laravel/overview/)** covers prerequisites, production setup, and the complete workflow. PAM projects keep normal manifests and lockfiles; product features stay in the package that owns them.
+<!-- pam:product-page:end -->
 
 Production tooling for Laravel 12 and 13 applications running on the
 [PAM runtime](https://github.com/push-in/pam).
-
-## Start here
-
-PAM Laravel is a Composer product that runs on the PAM Runtime. Install and
-verify PAM before adding the Laravel integration:
-
-```bash
-curl --proto '=https' --proto-redir '=https' --tlsv1.2 \
-    --connect-timeout 15 --max-time 60 --max-filesize 1048576 -fsSL \
-    https://github.com/push-in/pam/releases/latest/download/install.sh | sh
-
-cd my-laravel-app
-pam doctor
-pam composer require pushinbr/pam-laravel
-pam artisan pam:install --preset=api
-pam artisan pam:check-production
-```
-
-Laravel package discovery registers the provider automatically. The installer
-publishes `config/pam.php`, a multiprocess manifest and Docker Compose, systemd
-and Kubernetes examples.
-
-Available presets are `api`, `livewire`, `inertia` and `realtime`. The selected
-preset is persisted as its stable integer enum value in `.pam/laravel.json`, so
-automation has a versionable contract instead of inferring the stack.
 
 ## Production lifecycle
 
